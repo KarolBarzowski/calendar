@@ -10,6 +10,7 @@ const Wrapper = styled.nav`
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 48px;
 `;
 
 const Row = styled.div`
