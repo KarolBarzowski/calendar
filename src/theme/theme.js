@@ -13,6 +13,7 @@ const theme = {
     gray6: "rgb(28, 28, 30)",
     text: "rgba(255, 255, 255, .87)",
     textSecondary: "rgba(255, 255, 255, .6)",
+    white: "rgba(255, 255, 255, .87)",
   },
   light: {
     red: "rgb(255, 59, 48)",
@@ -28,6 +29,7 @@ const theme = {
     gray6: "rgb(242, 242, 247)",
     text: "rgb(28, 28, 30)",
     textSecondary: "rgb(44, 44, 46)",
+    white: "rgba(255, 255, 255, .87)",
   },
 };
 

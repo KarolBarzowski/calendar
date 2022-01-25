@@ -37,7 +37,7 @@ const StyledButton = styled.button`
 
 function MonthSwitch({ month, setMonth, handleNext, handlePrev }) {
   return (
-    <LanguageContext>
+    <LanguageContext.Consumer>
       {(language) => (
         <StyledWrapper>
           <StyledButton onClick={handlePrev}>
@@ -49,7 +49,7 @@ function MonthSwitch({ month, setMonth, handleNext, handlePrev }) {
           </StyledButton>
         </StyledWrapper>
       )}
-    </LanguageContext>
+    </LanguageContext.Consumer>
   );
 }
 

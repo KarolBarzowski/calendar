@@ -22,6 +22,10 @@ const StyledWrapper = styled(Link)`
 
   &.active {
     background-color: ${({ theme }) => theme.blue};
+
+    svg {
+      fill: ${({ theme }) => theme.white};
+    }
   }
 
   :hover:not(.active) {

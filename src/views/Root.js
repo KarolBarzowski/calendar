@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GlobalStyle from "theme/GlobalStyle";
@@ -13,7 +13,7 @@ const SCOPES =
   "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/calendar.events https://www.googleapis.com/auth/calendar";
 
 function Root() {
-  const [isDarkMode, setIsDarkMode] = useState(JSON.parse(window.localStorage.getItem("darkmode")) || false);
+  const [currentTheme, setCurrentTheme] = useState(JSON.parse(window.localStorage.getItem("theme")) || "dark");
   const [language, setLanguage] = useState(window.localStorage.getItem("language") || "en");
   const [events, setEvents] = useState([]);
   const [calendars, setCalendars] = useState([]);
@@ -118,11 +118,11 @@ function Root() {
   };
 
   return (
-    <ThemeProvider theme={theme[isDarkMode ? "dark" : "light"]}>
+    <ThemeProvider theme={theme[currentTheme]}>
       <LanguageContext.Provider value={languages[language]}>
         <GlobalStyle />
         <BrowserRouter>
-          <MainTemplate>
+          <MainTemplate lang={language} setLang={setLanguage} theme={currentTheme} setTheme={setCurrentTheme}>
             <Routes>
               <Route path="/" exact element={<Home />} />
               <Route path="/calendar" element={<Calendar />} />

@@ -9,10 +9,10 @@ const Container = styled.div`
   padding: 48px;
 `;
 
-function MainTemplate({ children }) {
+function MainTemplate({ children, lang, setLang, theme, setTheme }) {
   return (
     <Container>
-      <Nav />
+      <Nav lang={lang} setLang={setLang} theme={theme} setTheme={setTheme} />
       {children}
     </Container>
   );
