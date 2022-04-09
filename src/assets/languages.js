@@ -8,6 +8,9 @@ export const languages = {
     dark: "Night",
     theme: "Theme",
     months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    daysFull: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    daysShort: ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
+    agenda: "Agenda",
   },
   pl: {
     home: "Home",
@@ -18,5 +21,8 @@ export const languages = {
     dark: "Noc",
     theme: "Motyw",
     months: ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"],
+    daysFull: ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"],
+    daysShort: ["pon", "wt", "śr", "czw", "pt", "sob", "niedz"],
+    agenda: "Harmonogram",
   },
 };

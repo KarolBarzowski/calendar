@@ -13,14 +13,12 @@ const SCOPES =
   "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/calendar.events https://www.googleapis.com/auth/calendar";
 
 function Root() {
-  const [currentTheme, setCurrentTheme] = useState(JSON.parse(window.localStorage.getItem("theme")) || "dark");
+  const [currentTheme, setCurrentTheme] = useState(window.localStorage.getItem("theme") || "dark");
   const [language, setLanguage] = useState(window.localStorage.getItem("language") || "en");
   const [events, setEvents] = useState([]);
   const [calendars, setCalendars] = useState([]);
 
   useEffect(() => {
-    console.log("calendars", calendars);
-
     if (calendars.length)
       calendars.forEach((calendar) => {
         fetch(
@@ -41,10 +39,6 @@ function Root() {
           });
       });
   }, [calendars]);
-
-  useEffect(() => {
-    console.log("events", events);
-  }, [events]);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -117,15 +111,25 @@ function Root() {
     }));
   };
 
+  const setTheme = (theme) => {
+    window.localStorage.setItem("theme", theme);
+    setCurrentTheme(theme);
+  };
+
+  const setCurrentLanguage = (lang) => {
+    window.localStorage.setItem("language", lang);
+    setLanguage(lang);
+  };
+
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <LanguageContext.Provider value={languages[language]}>
         <GlobalStyle />
         <BrowserRouter>
-          <MainTemplate lang={language} setLang={setLanguage} theme={currentTheme} setTheme={setCurrentTheme}>
+          <MainTemplate lang={language} setLang={setCurrentLanguage} theme={currentTheme} setTheme={setTheme}>
             <Routes>
               <Route path="/" exact element={<Home />} />
-              <Route path="/calendar" element={<Calendar />} />
+              <Route path="/calendar" element={<Calendar events={events} />} />
             </Routes>
           </MainTemplate>
         </BrowserRouter>

@@ -6,7 +6,7 @@ const Tooltip = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 36px;
+  min-height: 36px;
   padding: 0 12px;
   border-radius: 8px;
   background-color: ${({ theme }) => theme.gray5};
@@ -18,6 +18,7 @@ const Tooltip = styled.span`
   opacity: 0;
   transform-origin: center center;
   transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out;
+  z-index: 9999;
 `;
 
 export default Tooltip;

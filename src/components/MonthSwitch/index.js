@@ -11,6 +11,7 @@ const StyledWrapper = styled.div`
   flex-flow: row nowrap;
   align-items: center;
   gap: 5px;
+  z-index: 9999;
 `;
 
 const StyledButton = styled.button`
@@ -86,7 +87,7 @@ function MonthSwitch({ month, setMonth, handleNext, handlePrev }) {
             <Paragraph>{language.months[month]}</Paragraph>
             <StyledDropdown isVisible={isDropdownOpen} top={month}>
               {language.months.map((m, i) => (
-                <StyledDropdownButton type="button" onClick={() => setMonth(i)}>
+                <StyledDropdownButton as="span" onClick={() => setMonth(i)} key={i.toString()}>
                   <Paragraph>{m}</Paragraph>
                 </StyledDropdownButton>
               ))}
